@@ -58,7 +58,7 @@ fi
 
 # ── Fetch upstream ────────────────────────────────────────────────────────────
 echo "▸ Fetching upstream..."
-git fetch origin
+git fetch upstream
 
 # Ver qué commits nuevos hay en main
 NEW_COMMITS=$(git log HEAD..origin/${UPSTREAM_BRANCH} --oneline 2>/dev/null | wc -l | tr -d ' ')
@@ -78,7 +78,7 @@ echo ""
 echo "▸ Mergeando origin/${UPSTREAM_BRANCH} → ${CURRENT_BRANCH}..."
 
 # Intentar merge
-if git merge "origin/${UPSTREAM_BRANCH}" --no-edit 2>&1; then
+if git merge "upstream/${UPSTREAM_BRANCH}" --no-edit 2>&1; then
   echo "  ✓ Merge limpio"
 else
   echo ""
