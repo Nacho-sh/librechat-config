@@ -13,11 +13,13 @@
 
 services:
   api:
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - type: bind
         source: ./librechat.yaml
         target: /app/librechat.yaml
-    image: registry.librechat.ai/danny-avila/librechat:latest
     environment:
       - MCP_ALLOWED_DOMAINS=http://mcp-filesystem:8006
       - SEARXNG_INSTANCE_URL=http://searxng:8080
